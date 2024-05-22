@@ -79,7 +79,7 @@ struct PhotoView: View {
                     
                     Button(action: {
                         if imageData.isEmpty{
-                            showToast(message: "Select the camera button")
+                            showToast(message: "Select the camera button and add a photo")
                         } else {
                             save(image: imageData)
                         }
