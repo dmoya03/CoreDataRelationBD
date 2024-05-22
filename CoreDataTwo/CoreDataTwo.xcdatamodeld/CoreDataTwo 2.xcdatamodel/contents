@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Goals" representedClassName="Goals" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="relationToTasks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tasks" inverseName="origin" inverseEntity="Tasks"/>
+    </entity>
+    <entity name="Photos" representedClassName="Photos" syncable="YES" codeGenerationType="class">
+        <attribute name="idTask" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tasks" inverseName="relationToPhotos" inverseEntity="Tasks"/>
+    </entity>
+    <entity name="Tasks" representedClassName="Tasks" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="idGoal" optional="YES" attributeType="String"/>
+        <attribute name="task" optional="YES" attributeType="String"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="relationToTasks" inverseEntity="Goals"/>
+        <relationship name="relationToPhotos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photos" inverseName="origin" inverseEntity="Photos"/>
+    </entity>
+</model>
